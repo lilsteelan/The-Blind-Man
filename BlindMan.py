@@ -1,4 +1,4 @@
-Version = 1.4
+Version = 1.5
 #Importations
 import time
 from turtle import *
@@ -34,20 +34,30 @@ def animate(var):
         sys.stdout.write(x)
         time.sleep(0.045)
         sys.stdout.flush()
+"""VARIABLES"""
+coins = 100
+GameIsRunning = True
+while GameIsRunning:
+	animate("Welcome to the blind man run,\n")
+	animate("enter the maze at YOUR OWN Risk\n")
+	animate("btw, c = yes, and x = no\n")
+	cont = input("Continue: ")
+	print(cont)
+	#Check the users response
+	if cont == "c" or cont == " c":
+		animate("Very well then, as you wish\n")
+		#Ask the user what color they want to be
+		userColor = input("What color would you like to be: ")
+		#Then asign that color
+		turtle.color = (str(userColor.lower()))
 
-animate("Welcome to the blind man run,\n")
-animate("enter the maze at YOUR OWN Risk\n")
-animate("btw, c = yes, and x = no\n")
-cont = input("Continue?: ")
-
-if cont == "c":
-	animate("Very well then, as you wish\n")
-	num1 = 50
-	while num1 > 0:
-		room()
-		num1 -= 1
-
+	#If they do not wish to continue
+	if cont == "n" or cont == " n":
+		animate("Smart choice, leaving the game")
+		#sys.exit() makes the program end
+		sys.exit()
 	#If it did not match what we intended
 	else:
 		animate("Invalid answer, try again")
 		pass
+
