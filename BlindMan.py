@@ -1,5 +1,5 @@
 
-Version = 1.6
+Version = 1.7
 #Importations
 import time
 from turtle import *
@@ -35,7 +35,6 @@ def room():
 def animate(var):
     for x in var:
         sys.stdout.write(x)
-        winsound.PlaySound("silentkeyshort.wav", winsound.SND_ASYNC)
         time.sleep(0.045)
         sys.stdout.flush()
         #9
@@ -53,20 +52,27 @@ while GameIsRunning:
 	cont = input("Continue: ")
 	print(cont)
 	#Check the users response
-	if cont == "c" or cont == " c":
+	if cont == "c" or cont == " c" or cont.lower() == "yes" or cont.lower == "y":
 		animate("Very well then, as you wish\n")
 		#Ask the user what color they want to be
 		userColor = input("What color would you like to be: ")
 		#Then asign that color
-		turtle.color = (str(userColor.lower()))
 
+		#Try to set that color
+		try:
+			turtle.color = (str(userColor.lower()))
+
+		#If it fails we inform the user that it failed
+		except:
+			animate("that color was invalid! \n")
+		
 	#If they do not wish to continue
 	if cont == "n" or cont == " n":
-		animate("Smart choice, leaving the game")
+		animate("Smart choice, leaving the game\n")
 		#sys.exit() makes the program end
 		sys.exit()
 	#If it did not match what we intended
 	else:
-		animate("Invalid answer, try again")
+		animate("Please try again!\n")
 		pass
 
