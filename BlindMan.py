@@ -52,7 +52,7 @@ while GameIsRunning:
 		turtle.color = (str(userColor.lower()))
 
 	#If they do not wish to continue
-	if cont == "n" or cont == " n":
+	elif cont == "n" or cont == " n":
 		animate("Smart choice, leaving the game")
 		#sys.exit() makes the program end
 		sys.exit()
