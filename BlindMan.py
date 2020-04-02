@@ -5,6 +5,7 @@ from turtle import *
 import random
 import datetime
 import sys
+import winsound
 
 """DEFINITIONS"""
 def wall():
@@ -32,6 +33,7 @@ def room():
 def animate(var):
     for x in var:
         sys.stdout.write(x)
+	winsound.PlaySound("silentkeyshort.wav", winsound.SND_ASYNC)
         time.sleep(0.045)
         sys.stdout.flush()
 """VARIABLES"""
