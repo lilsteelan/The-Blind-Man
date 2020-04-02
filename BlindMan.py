@@ -1,5 +1,4 @@
-
-Version = 1.3
+Version = 1.4
 #Importations
 import time
 from turtle import *
@@ -7,25 +6,46 @@ import random
 import datetime
 import sys
 
-
 """DEFINITIONS"""
+def wall():
+	pd()
+	fd(75)
+	pu()
+	fd(50)
+	pd()
+	fd(75)
+	rt(90)
+
+def room():
+	
+	pu()
+	fd(100)
+	lt(90)
+	fd(100)
+	rt(180)
+	wall()
+	wall()
+	wall()
+	wall()
+	
+
 def animate(var):
     for x in var:
         sys.stdout.write(x)
         time.sleep(0.045)
         sys.stdout.flush()
-"""VARIABLES"""
-coins = 100
-GameIsRunning = True
-while GameIsRunning:
-	animate("Welcome to the blind man run,\n")
-	animate("enter the maze at YOUR OWN Risk\n")
-	animate("btw, c = yes, and x = no\n")
-	cont = input("Continue: ")
-	print(cont)
-	#Check the users response
-	if cont == "c" or cont == " c":
-		animate("Very well then, as you wish\n")
+
+animate("Welcome to the blind man run,\n")
+animate("enter the maze at YOUR OWN Risk\n")
+animate("btw, c = yes, and x = no\n")
+cont = input("Continue?: ")
+
+if cont == "c":
+	animate("Very well then, as you wish\n")
+	num1 = 50
+	while num1 > 0:
+		room()
+		num1 -= 1
 
 	#If it did not match what we intended
 	else:
