@@ -1,4 +1,5 @@
-Version = 1.55
+
+Version = 1.6
 #Importations
 import time
 from turtle import *
@@ -6,6 +7,8 @@ import random
 import datetime
 import sys
 import winsound
+import os
+
 
 """DEFINITIONS"""
 def wall():
@@ -28,18 +31,22 @@ def room():
 	wall()
 	wall()
 	wall()
-	
 
 def animate(var):
     for x in var:
         sys.stdout.write(x)
-	winsound.PlaySound("silentkeyshort.wav", winsound.SND_ASYNC)
+        winsound.PlaySound("silentkeyshort.wav", winsound.SND_ASYNC)
         time.sleep(0.045)
         sys.stdout.flush()
+        #9
+        #time.sleep(0.023)
+
 """VARIABLES"""
 coins = 100
 GameIsRunning = True
+
 while GameIsRunning:
+
 	animate("Welcome to the blind man run,\n")
 	animate("enter the maze at YOUR OWN Risk\n")
 	animate("btw, c = yes, and x = no\n")
@@ -54,7 +61,7 @@ while GameIsRunning:
 		turtle.color = (str(userColor.lower()))
 
 	#If they do not wish to continue
-	elif cont == "n" or cont == " n":
+	if cont == "n" or cont == " n":
 		animate("Smart choice, leaving the game")
 		#sys.exit() makes the program end
 		sys.exit()
