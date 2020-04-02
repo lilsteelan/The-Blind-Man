@@ -1,5 +1,5 @@
 
-Version = 1.7
+Version = 1.75
 #Importations
 import time
 from turtle import *
@@ -44,7 +44,10 @@ def animate(var):
 coins = 100
 GameIsRunning = True
 
+window = Screen()
 while GameIsRunning:
+
+
 
 	animate("Welcome to the blind man run,\n")
 	animate("enter the maze at YOUR OWN Risk\n")
